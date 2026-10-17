@@ -11,6 +11,7 @@ A soft light colour theme inspired by Sylveon, J-fashion, and kawaii culture. Wa
 ## Features
 
 - Coordinated editor, sidebar, tabs, terminal, and workbench colours.
+- A ribbon-blue status bar with readable pastel debugging, remote, offline, error, and warning states, plus hover and keyboard-focus treatments.
 - Syntax highlighting and semantic token colours.
 - An original abstract ribbon logo, available as SVG and 128px, 256px, and 512px PNGs in [`assets/`](assets/).
 - A declarative theme with no executable extension entry point or runtime dependencies.
@@ -21,20 +22,20 @@ Requires **Visual Studio Code 1.85.0 or later** within the declared `^1.85.0` co
 
 ### Visual Studio Marketplace
 
-Once the extension is published, search for **Sylveon Light** by **hai-lollie** in the Extensions view, or run:
+Search for **Sylveon Light** by **hai-lollie** in the Extensions view, or run:
 
 ```sh
 code --install-extension hai-lollie.sylveon-light-vscode
 ```
 
-The intended listing URL is [hai-lollie.sylveon-light-vscode](https://marketplace.visualstudio.com/items?itemName=hai-lollie.sylveon-light-vscode). Marketplace availability is separate from GitHub releases; if the listing is not available yet, use a release VSIX when available or build it locally.
+The listing URL is [hai-lollie.sylveon-light-vscode](https://marketplace.visualstudio.com/items?itemName=hai-lollie.sylveon-light-vscode). Marketplace publication is separate from GitHub releases, so the available versions may differ. If the required version is not listed yet, use its GitHub release VSIX or build it locally.
 
 ### Install a VSIX
 
-Download `sylveon-light-vscode-1.0.0.vsix` from the [v1.0.0 GitHub release](https://github.com/hai-lollie/sylveon-light-theme-vscode/releases/tag/v1.0.0) once that release is published. Verify its SHA-256 checksum against the release's `SHA256SUMS` file, then run:
+Download `sylveon-light-vscode-1.0.1.vsix` from the [v1.0.1 GitHub release](https://github.com/hai-lollie/sylveon-light-theme-vscode/releases/tag/v1.0.1). Verify its SHA-256 checksum against the release's `SHA256SUMS` file, then run:
 
 ```sh
-code --install-extension ./sylveon-light-vscode-1.0.0.vsix
+code --install-extension ./sylveon-light-vscode-1.0.1.vsix
 ```
 
 You can also use **Extensions → … → Install from VSIX…**.
@@ -48,9 +49,9 @@ After installation, open **Preferences: Color Theme** from the Command Palette a
 | Source | https://github.com/hai-lollie/sylveon-light-theme-vscode |
 | Publisher ID | `hai-lollie` |
 | Extension ID | `hai-lollie.sylveon-light-vscode` |
-| Version | `1.0.0` |
-| Planned source tag | `v1.0.0` |
-| Distribution filename | `sylveon-light-vscode-1.0.0.vsix` |
+| Version | `1.0.1` |
+| Source tag | `v1.0.1` |
+| Distribution filename | `sylveon-light-vscode-1.0.1.vsix` |
 | License | [MIT](LICENSE) |
 
 For an exact approval record, use the published release's source commit, VSIX download URL, and SHA-256 checksum. These are established when the release is published, not by this README alone.
@@ -69,13 +70,13 @@ npm test
 npm run package
 ```
 
-The packaging command runs the tests before producing `sylveon-light-vscode-1.0.0.vsix`. The packaging tool is pinned in `package.json`, with its dependency versions recorded in `package-lock.json`. It is a development dependency, not a runtime dependency of the installed theme.
+The packaging command runs the tests before producing `sylveon-light-vscode-1.0.1.vsix`. The packaging tool is pinned in `package.json`, with its dependency versions recorded in `package-lock.json`. It is a development dependency, not a runtime dependency of the installed theme.
 
 Inspect the package and generate a checksum before distributing it:
 
 ```sh
 npx --no-install vsce ls --no-dependencies
-sha256sum sylveon-light-vscode-1.0.0.vsix > SHA256SUMS
+sha256sum sylveon-light-vscode-1.0.1.vsix > SHA256SUMS
 ```
 
 On Windows, PowerShell's `Get-FileHash -Algorithm SHA256` can calculate the same checksum.

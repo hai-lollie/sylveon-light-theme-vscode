@@ -5,11 +5,22 @@ import { describe, it } from 'node:test';
 const extensionRoot = new URL('../', import.meta.url);
 const extension = JSON.parse(readFileSync(new URL('package.json', extensionRoot), 'utf8'));
 const sourceUrl = 'https://github.com/hai-lollie/sylveon-light-theme-vscode';
+const releaseVersion = '1.0.1';
+const releaseFilename = `sylveon-light-vscode-${releaseVersion}.vsix`;
 
 describe('Sylveon Light release', () => {
-  it('identifies the approved publisher and initial release', () => {
+  it('identifies the approved publisher and patch release', () => {
     assert.equal(`${extension.publisher}.${extension.name}`, 'hai-lollie.sylveon-light-vscode');
-    assert.equal(extension.version, '1.0.0');
+    assert.equal(extension.version, releaseVersion);
+  });
+
+  it('keeps the lockfile release identity aligned with the manifest', () => {
+    const lockfile = JSON.parse(readFileSync(new URL('package-lock.json', extensionRoot), 'utf8'));
+
+    assert.equal(lockfile.name, extension.name);
+    assert.equal(lockfile.version, releaseVersion);
+    assert.equal(lockfile.packages[''].name, extension.name);
+    assert.equal(lockfile.packages[''].version, releaseVersion);
   });
 
   it('links the public source, issue tracker, and project homepage', () => {
@@ -85,15 +96,27 @@ describe('Sylveon Light release', () => {
   it('documents the exact identity and source for installation and security review', () => {
     const readme = readFileSync(new URL('README.md', extensionRoot), 'utf8');
     assert.ok(readme.includes('hai-lollie.sylveon-light-vscode'));
-    assert.ok(readme.includes(extension.version));
+    assert.ok(readme.includes(`| Version | \`${releaseVersion}\` |`));
+    assert.ok(readme.includes(`| Source tag | \`v${releaseVersion}\` |`));
+    assert.ok(readme.includes(`${sourceUrl}/releases/tag/v${releaseVersion}`));
     assert.ok(readme.includes(sourceUrl));
     assert.ok(readme.includes('code --install-extension'));
     assert.ok(readme.includes('SHA-256'));
   });
 
+  it('uses the current VSIX filename in every download, installation, and checksum example', () => {
+    const readme = readFileSync(new URL('README.md', extensionRoot), 'utf8');
+    const filenames = [...readme.matchAll(/sylveon-light-vscode-[\d.]+\.vsix/g)].map(match => match[0]);
+
+    assert.ok(filenames.length > 0, 'Installation instructions must identify the VSIX');
+    for (const filename of filenames) {
+      assert.equal(filename, releaseFilename);
+    }
+  });
+
   it('records the packaged version in the changelog', () => {
     const changelog = readFileSync(new URL('CHANGELOG.md', extensionRoot), 'utf8');
-    assert.ok(changelog.includes(`## ${extension.version}`));
+    assert.ok(changelog.includes(`## ${releaseVersion}`));
   });
 
   it('shows the high-resolution ribbon artwork at a compact size in the README', () => {
