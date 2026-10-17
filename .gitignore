@@ -1,0 +1,8 @@
+node_modules/
+*.vsix
+SHA256SUMS
+*.sha256
+.env
+.env.*
+.DS_Store
+Thumbs.db

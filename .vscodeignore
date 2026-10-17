@@ -1,0 +1,13 @@
+.git/**
+.github/**
+node_modules/**
+test/**
+assets/*.svg
+assets/icon-256.png
+assets/icon-512.png
+package-lock.json
+.gitignore
+.vscodeignore
+**/*.vsix
+**/*.sha256
+SHA256SUMS

@@ -1,0 +1,56 @@
+{
+  "name": "sylveon-light-vscode",
+  "displayName": "Sylveon Light",
+  "description": "A pastel light colour theme inspired by Sylveon, J-fashion, and kawaii culture.",
+  "version": "1.0.0",
+  "publisher": "hai-lollie",
+  "private": true,
+  "author": {
+    "name": "Lollie"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hai-lollie/sylveon-light-theme-vscode.git"
+  },
+  "homepage": "https://github.com/hai-lollie/sylveon-light-theme-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/hai-lollie/sylveon-light-theme-vscode/issues"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#AEDFF7",
+    "theme": "light"
+  },
+  "pricing": "Free",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "pastel",
+    "light",
+    "kawaii",
+    "pink",
+    "blue"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "package": "npm test && vsce package --no-dependencies"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Sylveon Light",
+        "uiTheme": "vs",
+        "path": "./themes/sylveon-light-color-theme.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.0.0"
+  }
+}
