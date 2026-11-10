@@ -5,6 +5,8 @@ test/**
 assets/*.svg
 assets/icon-256.png
 assets/icon-512.png
+assets/preview.png
+tools/**
 package-lock.json
 .gitignore
 .vscodeignore

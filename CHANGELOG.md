@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add a generated workbench preview to the README, rendered from the theme's own colours with `npm run render:preview` (Firefox headless) and covered by PNG regression tests.
+
 ## 1.0.1
 
 - Use a pastel ribbon-blue status bar for workspace and no-folder windows, replacing VS Code's inherited dark-purple no-folder background.

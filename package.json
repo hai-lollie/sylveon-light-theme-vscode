@@ -39,6 +39,7 @@
   ],
   "scripts": {
     "test": "node --test test/*.test.mjs",
+    "render:preview": "node tools/render-preview.mjs",
     "package": "npm test && vsce package --no-dependencies"
   },
   "contributes": {

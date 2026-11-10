@@ -8,6 +8,12 @@
 
 A soft light colour theme inspired by Sylveon, J-fashion, and kawaii culture. Warm pink editor surfaces, ribbon-blue accents, and lavender details bring a playful touch to everyday coding. 💙
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hai-lollie/sylveon-light-theme-vscode/main/assets/preview.png" width="880" alt="The VS Code workbench in Sylveon Light: a Clojure file in the pink editor, a pastel sidebar and activity bar, a mint terminal panel, and a ribbon-blue status bar." />
+</p>
+
+<p align="center"><em>The workbench in Sylveon Light — a preview generated from the theme's own colours with <code>npm run render:preview</code>.</em></p>
+
 ## Features
 
 - Coordinated editor, sidebar, tabs, terminal, and workbench colours.
